@@ -1,17 +1,29 @@
 package com.example.project;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        final TextView message = findViewById(R.id.message);
-        message.setText("Hello, from activity_second!");
+        sharedPref = getPreferences(MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        final Button button = findViewById(R.id.store_button);
+        button.setOnClickListener(view -> {
+            final EditText editText = findViewById(R.id.editText);
+            editor.putString("text_content", editText.getText().toString());
+            editor.apply();
+        });
     }
 }
