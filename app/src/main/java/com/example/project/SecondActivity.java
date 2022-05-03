@@ -16,7 +16,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        sharedPref = getPreferences(MODE_PRIVATE);
+        sharedPref = getSharedPreferences("store", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         final Button button = findViewById(R.id.store_button);

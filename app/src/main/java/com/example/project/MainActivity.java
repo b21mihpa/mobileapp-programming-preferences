@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        sharedPref = getPreferences(MODE_PRIVATE);
+        sharedPref = getSharedPreferences("store", MODE_PRIVATE);
         editor = sharedPref.edit();
 
         final Button button = findViewById(R.id.button);
