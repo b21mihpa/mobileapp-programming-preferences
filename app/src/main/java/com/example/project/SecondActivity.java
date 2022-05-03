@@ -22,8 +22,9 @@ public class SecondActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.store_button);
         button.setOnClickListener(view -> {
             final EditText editText = findViewById(R.id.editText);
-            editor.putString("text_content", editText.getText().toString());
+            editor.putString("message", editText.getText().toString());
             editor.apply();
+            finish(); // return to activity that launched the intent
         });
     }
 }
